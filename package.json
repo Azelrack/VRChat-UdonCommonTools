@@ -1,0 +1,27 @@
+{
+  "name": "com.azelrack.vrchat-udon-common-tools",
+  "version": "0.1.0",
+  "displayName": "VRChat Udon Common Tools",
+  "description": "Collection of scripts and prefabs used in multiple of my packages. Mostly basic UI bricks.",
+  "unity": "2022.3",
+  "unityRelease": "22f1",
+  "documentationUrl": "https://github.com/Azelrack/VRChat-UdonCommonTools",
+  "changelogUrl": "https://github.com/Azelrack/VRChat-UdonCommonTools/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/Azelrack/VRChat-UdonCommonTools/blob/main/LICENSE",
+  "dependencies": {
+    "com.vrchat.base": "3.10.6",
+    "com.vrchat.worlds": "3.10.6",
+    "com.vrchat.core.vpm-resolver": "0.1.29",
+    "com.unity.textmeshpro": "3.0.6"
+ },
+ "keywords": [
+    "Script",
+    "Prefab",
+    "UI"
+  ],
+  "author": {
+    "name": "Azelrack",
+    "email": "azelrack@gmail.com",
+    "url": "https://github.com/Azelrack"
+  }
+}
