@@ -25,6 +25,8 @@ public class SimpleToggle : UdonSharpBehaviour
 
     public override void OnPlayerRestored(VRCPlayerApi player)
     {
+        if (!player.isLocal)
+            return;
         if (_usePersistence && PlayerData.TryGetBool(player, _persistenceKey, out bool value))
         {
             if (value)
@@ -46,6 +48,8 @@ public class SimpleToggle : UdonSharpBehaviour
         foreach (GameObject obj in _objectsToToggle)
             obj.SetActive(false);
         MoveSelectionTo(_offTransform);
+        if (_usePersistence && !string.IsNullOrEmpty(_persistenceKey))
+            PlayerData.SetBool(_persistenceKey, false);
     }
 
     public virtual void _ToggleOn()
@@ -55,6 +59,8 @@ public class SimpleToggle : UdonSharpBehaviour
         foreach (GameObject obj in _objectsToToggle)
             obj.SetActive(true);
         MoveSelectionTo(_onTransform);
+        if (_usePersistence && !string.IsNullOrEmpty(_persistenceKey))
+            PlayerData.SetBool(_persistenceKey, true);
     }
 
     private void MoveSelectionTo(RectTransform destination)
