@@ -1,3 +1,7 @@
+# Next release (0.1.3)
+## Change
+- Logic cleanup
+
 # 0.1.2
 ## Fix
 - Would reset to defaut config whenever a player logs in.

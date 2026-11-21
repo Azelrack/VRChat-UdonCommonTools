@@ -7,18 +7,19 @@ using VRC.SDK3.Persistence;
 
 public class SimpleToggle : UdonSharpBehaviour
 {
-    [Header("--- External Behavior")]
+    [SerializeField] private bool _defaultState = true;
+
+    [Header("--- External Behavior ---")]
     [SerializeField] private UdonSharpBehaviour _behaviorToCall;
     [SerializeField] private string _onEventName;
     [SerializeField] private string _offEventName;
     [SerializeField] private GameObject[] _objectsToToggle;
-    [SerializeField] private bool _defaultState = true;
 
-    [Header("--- Persistence")]
+    [Header("--- Persistence ---")]
     [SerializeField] private bool _usePersistence;
     [SerializeField] private string _persistenceKey;
 
-    [Header("--- UI Animation")]
+    [Header("--- UI Animation ---")]
     [SerializeField] RectTransform _offTransform;
     [SerializeField] RectTransform _onTransform;
     [SerializeField] RectTransform _selectionTransform;
@@ -28,39 +29,28 @@ public class SimpleToggle : UdonSharpBehaviour
         if (!player.isLocal)
             return;
         if (_usePersistence && PlayerData.TryGetBool(player, _persistenceKey, out bool value))
-        {
-            if (value)
-                _ToggleOn();
-            else
-                _ToggleOff();
-        }
-        else if (_defaultState)
-            _ToggleOn();
+            Toggle(value);
         else
-            _ToggleOff();
+            Toggle(_defaultState);
     }
 
 
-    public virtual void _ToggleOff()
-    {
-        if (_behaviorToCall != null)
-            _behaviorToCall.SendCustomEvent(_offEventName);
-        foreach (GameObject obj in _objectsToToggle)
-            obj.SetActive(false);
-        MoveSelectionTo(_offTransform);
-        if (_usePersistence && !string.IsNullOrEmpty(_persistenceKey))
-            PlayerData.SetBool(_persistenceKey, false);
-    }
+    public virtual void _ToggleOff() => Toggle(false);
 
-    public virtual void _ToggleOn()
+    public virtual void _ToggleOn() => Toggle(true);
+
+    private void Toggle(bool toggle)
     {
         if (_behaviorToCall != null)
-            _behaviorToCall.SendCustomEvent(_onEventName);
+            _behaviorToCall.SendCustomEvent(toggle ? _onEventName : _offEventName);
+
         foreach (GameObject obj in _objectsToToggle)
-            obj.SetActive(true);
-        MoveSelectionTo(_onTransform);
+            obj.SetActive(toggle);
+
+        MoveSelectionTo(toggle ? _onTransform : _offTransform);
+
         if (_usePersistence && !string.IsNullOrEmpty(_persistenceKey))
-            PlayerData.SetBool(_persistenceKey, true);
+            PlayerData.SetBool(_persistenceKey, toggle);
     }
 
     private void MoveSelectionTo(RectTransform destination)
