@@ -87,7 +87,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7448465904770891303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 5, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -431,7 +431,7 @@ PrefabInstance:
     - target: {fileID: 800067640405816962, guid: c7ff3129d7833d345a668d84d232f386,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 450
+      value: 475
       objectReference: {fileID: 0}
     - target: {fileID: 800067640405816962, guid: c7ff3129d7833d345a668d84d232f386,
         type: 3}

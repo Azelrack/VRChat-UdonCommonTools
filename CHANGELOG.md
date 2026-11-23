@@ -1,6 +1,10 @@
-# Next release (0.1.3)
+# Next Release
 ## Change
-- Logic cleanup
+- Improved default toggle layout.
+
+# 0.1.3
+## Change
+- Logic cleanup.
 
 # 0.1.2
 ## Fix
@@ -9,9 +13,9 @@
 
 # 0.1.1
 ## Fix
-- Missing assembly
+- Missing assembly.
 
 # 0.1.0
 ## New
-- Added simple toggle script and prefab, with basic UI animation and persistence
-- Added default local toggle pannel
+- Added simple toggle script and prefab, with basic UI animation and persistence.
+- Added default local toggle pannel.

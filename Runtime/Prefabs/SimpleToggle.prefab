@@ -479,11 +479,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 4241566513611963386}
+  _defaultState: 1
   _behaviorToCall: {fileID: 0}
   _onEventName: 
   _offEventName: 
   _objectsToToggle: []
-  _defaultState: 1
   _usePersistence: 0
   _persistenceKey: 
   _offTransform: {fileID: 2727190217915733965}
